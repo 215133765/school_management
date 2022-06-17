@@ -9,15 +9,18 @@ package za.ac.cput.Domain;
 public class Country {
     private String id, name;
 
+    //Parameterized Constructor
     public Country(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
     }
 
+    //No-Arg Constructor
     public Country(){
 
     }
 
+    //Getters and Setters
     public String getId() {
         return id;
     }
@@ -26,11 +29,13 @@ public class Country {
         return name;
     }
 
+    //toString
     @Override
     public String toString() {
         return name + ' ' + id  ;
     }
 
+    //Builder Pattern Class
     public static class Builder {
         private String id, name;
 

@@ -11,7 +11,9 @@ package za.ac.cput.Domain;
 
 public class Name {
 
-    private String firstName, middleName, lastName;
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
 
     public Name (Builder builder) {
         this.firstName = builder.firstName;

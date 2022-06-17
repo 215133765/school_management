@@ -42,9 +42,8 @@ public class City {
         this.country = country;
     }
 
-    //Tostring
 
-
+    //toString
     @Override
     public String toString() {
         return  cityId + ' ' + cityName +
