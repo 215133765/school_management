@@ -50,9 +50,10 @@ public static IStudentAddressRepository getStudentAddressRepository() {
 }
 
 @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
     StudentAddress studentAddress = read(s);
     this.studentAddresses.remove(studentAddress);
+    return true;
 }
 
 }
