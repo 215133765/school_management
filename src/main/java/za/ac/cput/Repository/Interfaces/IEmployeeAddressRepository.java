@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.Domain.EmployeeAddress;
 
 @Repository
-public interface IEmployeeAddressRepository extends JpaRepository<EmployeeAddress, String> {
+public interface IEmployeeAddressRepository extends IRepository<EmployeeAddress, String> {
 }
