@@ -1,44 +1,44 @@
 package za.ac.cput.Services.impl;
-/**
- * Author: Mziyanda Mwanda 215133765
- * POJO CityService.java
- *  City Service file to be implemented
- * Created: 13/6/2022
- * */
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.City;
-import za.ac.cput.Domain.Country;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
+import za.ac.cput.Repository.impl.CityRepository;
 import za.ac.cput.Services.Interfaces.ICityService;
 
-import java.util.List;
+@Service
+public class CityService implements ICityService {
 
-public abstract class CityService implements ICityService {
-
-    @Autowired
+    private static ICityService cityService;
     private ICityRepository cityRepository;
 
-    @Override
-    public City create (City city){
-        return this.cityRepository.save(city);
+    private CityService(){
+        this.cityRepository = CityRepository.getCityRepository();
+    }
+    public static ICityService getCityService(){
+        if (cityService == null){
+            cityService = new CityService();
+        }
+        return cityService;
     }
 
-    public City read (Country country){
-        return this.cityRepository.findById(country.getId()).orElse(null);
+    @Override
+    public City create(City city){
+        return this.cityRepository.create(city);
+    }
+
+    @Override
+    public City read(String city){
+        return this.cityRepository.read(city);
     }
 
     @Override
     public City update(City city){
-        return this.cityRepository.save(city);
-    }
-
-    public boolean delete(Country country){
-        this.cityRepository.deleteById(country.getId());
-        return !this.cityRepository.existsById(country.getId());
+        return this.cityRepository.update(city);
     }
 
     @Override
-    public List<City> getAll(){
-        return this.cityRepository.findAll();
+    public void delete(String cit){
+       this.cityRepository.delete(cit);
     }
 }
