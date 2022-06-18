@@ -13,5 +13,5 @@ import za.ac.cput.Repository.IRepository;
 import java.util.Set;
 
 public interface ICityRepository extends IRepository<City, String> {
-
+    public Set<City> getAll();
 }

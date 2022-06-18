@@ -58,8 +58,9 @@ public class AddressRepository implements IAddressRepository {
     @Override
     public boolean delete(String s) {
         Address deleted = read(s);
-        if (deleted == null)
+        if (deleted == null) {
             return false;
+        }
         addressesDB.remove(deleted);
         return true;
     }

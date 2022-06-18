@@ -7,9 +7,13 @@ package za.ac.cput.Repository.Interfaces;
  * */
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import za.ac.cput.Domain.City;
 import za.ac.cput.Domain.EmployeeAddress;
 import za.ac.cput.Repository.IRepository;
 
+import java.util.Set;
+
 @Repository
 public interface IEmployeeAddressRepository extends IRepository<EmployeeAddress, String> {
+    public Set<EmployeeAddress> getAll();
 }

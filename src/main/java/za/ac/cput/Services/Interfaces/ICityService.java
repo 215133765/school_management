@@ -12,4 +12,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface ICityService extends IService<City, String>{
+    Set<City> getAll();
 }
