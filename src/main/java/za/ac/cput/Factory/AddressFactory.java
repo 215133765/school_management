@@ -15,6 +15,8 @@ public class AddressFactory {
 
     {
 
+        if (Helper.isEmpty(unitNumber))
+            return null;
 
         Address address = new Address.Builder()
                 .setUnitNumber(unitNumber)

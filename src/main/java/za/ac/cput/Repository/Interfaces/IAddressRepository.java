@@ -9,4 +9,5 @@ import za.ac.cput.Repository.IRepository;
 
 public interface IAddressRepository extends IRepository<Address, String> {
 
+
 }

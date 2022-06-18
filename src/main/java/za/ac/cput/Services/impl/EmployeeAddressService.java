@@ -1,11 +1,16 @@
 package za.ac.cput.Services.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.EmployeeAddress;
 import za.ac.cput.Repository.Interfaces.IEmployeeAddressRepository;
 import za.ac.cput.Repository.impl.EmployeeAddressRepository;
 import za.ac.cput.Services.Interfaces.IEmployeeAddressService;
 
+
 import java.util.Set;
+
+
+@Service
 
 public class EmployeeAddressService implements IEmployeeAddressService {
 
