@@ -1,5 +1,7 @@
 package za.ac.cput.Repository.impl;
 
+import za.ac.cput.Domain.Name;
+import za.ac.cput.Domain.Student;
 import za.ac.cput.Domain.StudentAddress;
 import za.ac.cput.Repository.Interfaces.IStudentAddressRepository;
 import java.util.*;
@@ -9,11 +11,11 @@ public class StudentAddressRepository implements IStudentAddressRepository {
 
 
 private Set<StudentAddress> studentAddresses;
-private static IStudentAddressRepository studentAddressRepository;
+private static StudentAddressRepository studentAddressRepository;
 
 private StudentAddressRepository() {this.studentAddresses = new HashSet<>();}
 
-public static IStudentAddressRepository getStudentAddressRepository() {
+public static StudentAddressRepository getStudentAddressRepository() {
     if (studentAddressRepository == null) {
         studentAddressRepository = new StudentAddressRepository();
     }
@@ -28,11 +30,12 @@ public static IStudentAddressRepository getStudentAddressRepository() {
 }
 
 @Override
-    public StudentAddress read(String s) {
-    StudentAddress studentAddress = this.studentAddresses.stream()
-            .filter(e -> e.getAddress().equals(getStudentAddressRepository()))
-            .findAny().orElse(null);
-    return studentAddress;
+public StudentAddress read(String s) {
+    for (StudentAddress studAdd: studentAddresses) {
+        if (studAdd.getStudentId().equals(s))
+            return studAdd;
+    }
+    return null;
 }
 
 @Override
@@ -50,10 +53,12 @@ public static IStudentAddressRepository getStudentAddressRepository() {
 }
 
 @Override
-    public boolean delete(String s) {
+    public void delete(String s) {
     StudentAddress studentAddress = read(s);
     this.studentAddresses.remove(studentAddress);
     return true;
 }
+
+    public Set<StudentAddress> getAll() {return studentAddresses;}
 
 }

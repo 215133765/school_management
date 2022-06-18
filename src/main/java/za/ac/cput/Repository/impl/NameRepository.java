@@ -58,10 +58,11 @@ public class NameRepository implements INameRepository {
     }
 
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
 
         Name name = read(s);
         this.names.remove(name);
+        return true;
     }
 
     public Set<Name> getAll() {

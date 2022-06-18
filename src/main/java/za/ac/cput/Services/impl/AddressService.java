@@ -13,9 +13,9 @@ import java.util.Set;
 public class AddressService implements IAddressService {
 
     private static AddressService service;
-    private AddressRepository addressRepository;
+    private AddressRepository repository;
 
-    private AddressService() {this.addressRepository = AddressRepository.getRepository();}
+    private AddressService() {this.repository = AddressRepository.getRepository();}
 
     public static AddressService getService() {
         if (service == null) service = new AddressService();
@@ -23,18 +23,18 @@ public class AddressService implements IAddressService {
     }
 
     @Override
-    public Address create(Address address) {return this.addressRepository.create(address);}
+    public Address create(Address address) {return this.repository.create(address);}
 
     @Override
-    public Address read(String add) {return this.addressRepository.read(add);}
+    public Address read(String add) {return this.repository.read(add);}
 
 
     @Override
-    public Address update(Address address) {return this.addressRepository.update(address);}
+    public Address update(Address address) {return this.repository.update(address);}
 
     @Override
     public boolean delete(String s) {
-        this.addressRepository.delete(s);
+        this.repository.delete(s);
         return true;
     }
 //    @Override
@@ -44,7 +44,7 @@ public class AddressService implements IAddressService {
 //    }
     @Override
     public Set<Address> getAll() {
-        return this.addressRepository.getAll();
+        return this.repository.getAll();
     }
 
 

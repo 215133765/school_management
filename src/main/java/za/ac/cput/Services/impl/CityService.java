@@ -1,6 +1,7 @@
 package za.ac.cput.Services.impl;
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
 import za.ac.cput.Repository.impl.CityRepository;
@@ -42,7 +43,11 @@ public class CityService implements ICityService {
     @Override
     public boolean delete(String cit){
        this.cityRepository.delete(cit);
-        return false;
+        return true;
+    }
+
+    public Set<City> getAll() {
+        return this.cityRepository.getAll();
     }
 
 }

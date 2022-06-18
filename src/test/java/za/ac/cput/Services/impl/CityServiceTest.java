@@ -1,8 +1,7 @@
 package za.ac.cput.Services.impl;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Factory.CityFactory;
 import za.ac.cput.Factory.CountryFactory;
@@ -12,13 +11,14 @@ import za.ac.cput.Services.Interfaces.ICityService;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CityServiceTest {
+
     private static ICityService cityService = CityService.getCityService();
     private static City city = CityFactory.createCity("CPT", "Cape Town",
             CountryFactory.createCountry("ZAR", "South Africa"));
 
 
     @Test
-    void create() {
+    void a_create() {
         City created;
         created = cityService.create(city);
         assertEquals(city.getCityId(), created.getCityId());
@@ -28,13 +28,13 @@ class CityServiceTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
         City read = cityService.read(city.getCityName());
         System.out.println("Read : " + '\n' + read);
     }
 
     @Test
-    void update() {
+    void c_update() {
         City.Builder builder = new City.Builder();
         builder.copy(city);
         builder.setCityId("PTA");
@@ -45,10 +45,10 @@ class CityServiceTest {
     }
 
     @Test
-    void delete() {
+    void d_delete() {
         boolean deleted = cityService.delete(city.getCityId());
         assertTrue(deleted);
-        System.out.println("Delted" + deleted);
+        System.out.println("Deleted" + deleted);
 
 
     }

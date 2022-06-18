@@ -49,9 +49,10 @@ public class CityRepository implements ICityRepository {
         return cit;
     }
 
-    public void delete(String deleted){
+    public boolean delete(String deleted){
         City city = read(deleted);
         this.cities.remove(city);
+        return true;
     }
     public Set<City> getAll() {
         return cities;

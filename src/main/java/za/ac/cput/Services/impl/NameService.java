@@ -43,6 +43,6 @@ public class NameService implements INameService {
     public boolean delete(String s) {
 
         this.nameRepository.delete(s);
-        return false;
+        return true;
     }
 }

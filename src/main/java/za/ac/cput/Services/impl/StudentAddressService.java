@@ -9,14 +9,14 @@ import za.ac.cput.Services.Interfaces.IStudentAddressService;
 @Service
 public class StudentAddressService implements IStudentAddressService {
 
-    private static IStudentAddressRepository studentService;
-    private IStudentAddressRepository studentAddressRepository;
+    private static StudentAddressService studentAddressService;
+    private StudentAddressRepository studentAddressRepository;
 
     private StudentAddressService() {
         this.studentAddressRepository = StudentAddressRepository.getStudentAddressRepository();}
 
-    public static StudentAddressService getStudentService(StudentAddressService studentAddressService) {
-        if (getStudentService(studentAddressService) == null) studentAddressService = new StudentAddressService();
+    public static StudentAddressService getService() {
+        if (studentAddressService == null) studentAddressService = new StudentAddressService();
         return studentAddressService;
     }
 
@@ -31,10 +31,6 @@ public class StudentAddressService implements IStudentAddressService {
 
     @Override
     public boolean delete(String s) {this.studentAddressRepository.delete(s);
-        return s;
-    }
-
-
-
+    return true;}
 }
 
