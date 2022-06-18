@@ -10,8 +10,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.IRepository;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ICityRepository extends IRepository<City, String> {
     public Set<City> getAll();
+    List<City> findbyCityId(String cityId);
 }

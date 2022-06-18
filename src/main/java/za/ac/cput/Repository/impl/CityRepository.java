@@ -1,11 +1,12 @@
 package za.ac.cput.Repository.impl;
 
-import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CityRepository implements ICityRepository {
 
@@ -67,6 +68,12 @@ public class CityRepository implements ICityRepository {
     }
     public Set<City> getAll() {
         return cities;
+    }
+
+    public List<City> findbyCityId(String cityId){
+        return  this.cities.stream()
+                .filter(c -> c.getCityId().equalsIgnoreCase(cityId))
+                .collect(Collectors.toList());
     }
 
 }
