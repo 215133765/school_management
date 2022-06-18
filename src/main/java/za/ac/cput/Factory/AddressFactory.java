@@ -2,6 +2,7 @@ package za.ac.cput.Factory;
 
 import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.City;
+import za.ac.cput.Utility.Helper;
 
 /**
  * Author: GAYNOR JANTJIES 213069555
@@ -13,6 +14,7 @@ public class AddressFactory {
     public static Address createAddress(String unitNumber, String complexName, String streetNumber, String streetName, int postalCode, City city)
 
     {
+
 
         Address address = new Address.Builder()
                 .setUnitNumber(unitNumber)

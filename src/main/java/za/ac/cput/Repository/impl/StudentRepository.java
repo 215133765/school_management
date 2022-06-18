@@ -7,12 +7,12 @@ import za.ac.cput.Repository.Interfaces.IStudentRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository
+
 public class StudentRepository implements IStudentRepository {
 
-    private Set<Student> students;
-    private static StudentRepository studentRepository;
 
+    private static StudentRepository studentRepository = null;
+    private Set<Student> students;
     private StudentRepository() {this.students = new HashSet<>();}
 
     public static StudentRepository getStudentRepository() {
@@ -49,7 +49,7 @@ public class StudentRepository implements IStudentRepository {
     }
 
             @Override
-            public boolean delete(String s) {
+            public void delete(String s) {
             Student student = read(s);
             this.students.remove(student);
             return true;

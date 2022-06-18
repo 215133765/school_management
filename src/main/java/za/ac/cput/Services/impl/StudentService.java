@@ -1,5 +1,6 @@
 package za.ac.cput.Services.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Domain.Student;
 import za.ac.cput.Repository.impl.StudentRepository;
@@ -7,6 +8,7 @@ import za.ac.cput.Services.Interfaces.IStudentService;
 
 @Service
 public class StudentService implements IStudentService {
+
 
     private static StudentService studentService;
     private StudentRepository studentRepository;

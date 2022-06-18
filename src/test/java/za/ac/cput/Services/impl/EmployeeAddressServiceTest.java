@@ -61,7 +61,7 @@ class EmployeeAddressServiceTest {
     void delete() {
         boolean deleted = employeeAddressService.delete(employeeAddress.getStaffId());
         assertTrue(deleted);
-        System.out.println("Delted" + deleted);
+        System.out.println("Deleted" + deleted);
 
 
     }

@@ -53,7 +53,7 @@ public StudentAddress read(String s) {
 }
 
 @Override
-    public boolean delete(String s) {
+    public void delete(String s) {
     StudentAddress studentAddress = read(s);
     this.studentAddresses.remove(studentAddress);
     return true;
