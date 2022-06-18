@@ -54,8 +54,4 @@ public class CityRepository implements ICityRepository {
         City city = read(deleted);
         this.cities.remove(city);
     }
-
-    public Set<City> getAll(){
-        return cities;
-    }
 }
