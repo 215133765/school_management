@@ -6,7 +6,7 @@ import za.ac.cput.Repository.Interfaces.IStudentRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-@Repository
+
 public class StudentRepository implements IStudentRepository {
 
 

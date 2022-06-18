@@ -6,13 +6,14 @@ import za.ac.cput.Repository.Interfaces.IAddressRepository;
 
 import java.util.*;
 
-@Repository
+
 public class AddressRepository implements IAddressRepository {
 
     private static AddressRepository repository = null;
-    private Set<Address> addressesDB = null;
+    private Set<Address> addresses;
 
-    private AddressRepository() { this.addressesDB = new HashSet<>(); }
+
+    private AddressRepository() { this.addresses = new HashSet<>(); }
 
 //    public Address fetchAddress (String address){
 //
@@ -29,7 +30,7 @@ public class AddressRepository implements IAddressRepository {
 
     @Override
     public Address create(Address address) {
-        boolean created = addressesDB.add(address);
+        boolean created = addresses.add(address);
         if (!created)
             return null;
         return address;
@@ -37,7 +38,7 @@ public class AddressRepository implements IAddressRepository {
 
     @Override
     public Address read(String s) {
-        for (Address a: addressesDB) {
+        for (Address a: addresses) {
             if (a.getUnitNumber().equals(s))
                 return a;
         }
@@ -48,8 +49,8 @@ public class AddressRepository implements IAddressRepository {
     public Address update(Address address) {
         Address oldAddress = read(address.getUnitNumber());
         if (oldAddress != null) {
-            addressesDB.remove(oldAddress);
-            addressesDB.add(address);
+            addresses.remove(oldAddress);
+            addresses.add(address);
             return address;
         }
         return null;
@@ -60,11 +61,11 @@ public class AddressRepository implements IAddressRepository {
         Address deleted = read(s);
         if (deleted == null)
             return false;
-        addressesDB.remove(deleted);
+        addresses.remove(deleted);
         return true;
     }
 
     public Set<Address> getAll() {
-        return addressesDB;
+        return addresses;
     }
 }
