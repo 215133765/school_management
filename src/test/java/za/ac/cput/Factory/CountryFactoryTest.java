@@ -15,8 +15,8 @@ class CountryFactoryTest {
     @Test
     void createCountry() {
         Country country = CountryFactory.createCountry("ZAR", "South Africa");
-        System.out.println(country.toString());
         assertNotNull(country);
+        System.out.println(country);
 
     }
 }
