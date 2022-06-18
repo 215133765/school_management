@@ -1,3 +1,9 @@
+/**
+ * Mandisa Msongelwa
+ * Student number: 217149073
+ * StudentAddressFactoryTest.java
+ */
+
 package za.ac.cput.Factory;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Domain.Student;
@@ -9,10 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentAddressFactoryTest {
 
-//    @Test
-//    void buildStudentAddress() {
-//        City cape = null;
-//        assertNotNull(studentAddress);
-//        System.out.println("Student Address" + studentAddress);
-//    }
+    @Test
+    void buildStudentAddress() {
+        Address studentAddress = AddressFactory.createAddress("35","Tafelsig","45","Alps Street",7785,
+                CityFactory.createCity("CPT", "Cape Town", CountryFactory.createCountry("ZAR", "South Africa")));
+        assertNotNull(studentAddress);
+        System.out.println("Student Address" + studentAddress);
+    }
 }

@@ -1,6 +1,7 @@
 package za.ac.cput.Repository.impl;
 
 import org.springframework.stereotype.Repository;
+import za.ac.cput.Domain.Name;
 import za.ac.cput.Domain.Student;
 import za.ac.cput.Repository.Interfaces.IStudentRepository;
 import java.util.HashSet;
@@ -52,6 +53,7 @@ public class StudentRepository implements IStudentRepository {
             Student student = read(s);
             this.students.remove(student);
             return true;
-
             }
+
+    public Set<Student> getAll() { return students;}
 }
