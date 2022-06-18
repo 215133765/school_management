@@ -52,4 +52,8 @@ class CityServiceTest {
 
 
     }
+
+    @Test
+    void findbyCityId() {
+        String cityId = this.   }
 }

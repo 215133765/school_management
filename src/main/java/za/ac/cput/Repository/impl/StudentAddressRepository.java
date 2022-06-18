@@ -1,5 +1,6 @@
 package za.ac.cput.Repository.impl;
 
+import za.ac.cput.Domain.Name;
 import za.ac.cput.Domain.Student;
 import za.ac.cput.Domain.StudentAddress;
 import za.ac.cput.Repository.Interfaces.IStudentAddressRepository;
@@ -57,5 +58,7 @@ public StudentAddress read(String s) {
     this.studentAddresses.remove(studentAddress);
     return true;
 }
+
+    public Set<StudentAddress> getAll() {return studentAddresses;}
 
 }

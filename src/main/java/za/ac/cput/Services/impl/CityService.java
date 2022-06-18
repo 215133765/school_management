@@ -1,11 +1,13 @@
 package za.ac.cput.Services.impl;
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
 import za.ac.cput.Repository.impl.CityRepository;
 import za.ac.cput.Services.Interfaces.ICityService;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -45,4 +47,11 @@ public class CityService implements ICityService {
         return true;
     }
 
+    public Set<City> getAll() {
+        return this.cityRepository.getAll();
+    }
+
+    public List<City> findbyCityId(String cityId){
+        return this.cityRepository.findbyCityId(cityId);
+    }
 }

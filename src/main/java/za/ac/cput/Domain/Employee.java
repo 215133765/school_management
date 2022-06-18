@@ -12,16 +12,14 @@ public class Employee {
     private String staffId, email;
     private Name name;
 
-    //Constructors
-    private Employee(){}
-
-    public Employee(Builder builder) {
+    //Constructor
+    private Employee(Builder builder) {
         this.staffId = builder.staffId;
         this.email = builder.email;
         this.name = builder.name;
     }
 
-    //Getters and setters
+    //Getters
     public String getStaffId() {
         return staffId;
     }
@@ -35,10 +33,10 @@ public class Employee {
     //toString
     @Override
     public String toString() {
-        return "Employee : " + '\n' +
-                "Staff Id : " + staffId  + '\n'+
-                "Email : " + email + '\n' +
-                "Full Name : " + name ;
+        return "Employee: " + '\n' +
+                "Staff ID: " + staffId + '\n' +
+                "Full name: " + name  + '\n'+
+                "Email: " + email ;
     }
 
     //Builder pattern
@@ -58,6 +56,7 @@ public class Employee {
         }
 
         public Builder setName(Name name) {
+            this.name = name;
             return this;
         }
 
@@ -72,19 +71,42 @@ public class Employee {
         }
     }
 
-    // Check that the fields are equal
-    /*@Override
+    //For compound attribute identifiers
+    public static class EmployeeId{
+        private String staffId, email;
+        public EmployeeId(String staffId, String email) {
+            this.staffId = staffId;
+            this.email = email;
+        }
+        public String getStaffId() {
+            return staffId;
+        }
+        public String getEmail() {
+            return email;
+        }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            EmployeeId that = (EmployeeId) o;
+            return staffId.equals(that.staffId) && email.equals(that.email);
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(staffId, email);
+        }
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(staffId, employee.staffId);
-    }
-    // Calculate hash code based on all fields
+        Employee that = (Employee) o;
+        return staffId.equals(that.staffId) && email.equals(that.email);    }
+    // Calculate hash code
     @Override
     public int hashCode() {
-        return Objects.hash(staffId);
-    }*/
+        return Objects.hash(staffId, email);
+    }
 
 }
-

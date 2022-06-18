@@ -6,14 +6,13 @@ import za.ac.cput.Repository.Interfaces.IAddressRepository;
 
 import java.util.*;
 
-
+@Repository
 public class AddressRepository implements IAddressRepository {
 
     private static AddressRepository repository = null;
-    private Set<Address> addresses;
+    private Set<Address> addressesDB = null;
 
-
-    private AddressRepository() { this.addresses = new HashSet<>(); }
+    private AddressRepository() { this.addressesDB = new HashSet<>(); }
 
 //    public Address fetchAddress (String address){
 //
@@ -30,7 +29,7 @@ public class AddressRepository implements IAddressRepository {
 
     @Override
     public Address create(Address address) {
-        boolean created = addresses.add(address);
+        boolean created = addressesDB.add(address);
         if (!created)
             return null;
         return address;
@@ -38,7 +37,7 @@ public class AddressRepository implements IAddressRepository {
 
     @Override
     public Address read(String s) {
-        for (Address a: addresses) {
+        for (Address a: addressesDB) {
             if (a.getUnitNumber().equals(s))
                 return a;
         }
@@ -49,8 +48,8 @@ public class AddressRepository implements IAddressRepository {
     public Address update(Address address) {
         Address oldAddress = read(address.getUnitNumber());
         if (oldAddress != null) {
-            addresses.remove(oldAddress);
-            addresses.add(address);
+            addressesDB.remove(oldAddress);
+            addressesDB.add(address);
             return address;
         }
         return null;
@@ -59,13 +58,14 @@ public class AddressRepository implements IAddressRepository {
     @Override
     public boolean delete(String s) {
         Address deleted = read(s);
-        if (deleted == null)
+        if (deleted == null) {
             return false;
-        addresses.remove(deleted);
+        }
+        addressesDB.remove(deleted);
         return true;
     }
 
     public Set<Address> getAll() {
-        return addresses;
+        return addressesDB;
     }
 }

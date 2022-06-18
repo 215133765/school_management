@@ -7,10 +7,14 @@ package za.ac.cput.Factory;
  * */
 import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.EmployeeAddress;
+import za.ac.cput.Utility.Helper;
 
 public class EmployeeAddressFactory {
 
     public static EmployeeAddress createEmployeeAddress(String staffId, Address address){
+
+        if (Helper.isEmpty(staffId))
+            return null;
 
         EmployeeAddress emploAddress = new EmployeeAddress.Builder()
                 .setStaffId(staffId)

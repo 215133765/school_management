@@ -1,5 +1,6 @@
 package za.ac.cput.Repository.impl;
 
+import za.ac.cput.Domain.City;
 import za.ac.cput.Domain.EmployeeAddress;
 import za.ac.cput.Repository.Interfaces.IEmployeeAddressRepository;
 
@@ -53,5 +54,9 @@ public class EmployeeAddressRepository implements IEmployeeAddressRepository {
         EmployeeAddress employeeAddress = read(del);
         this.employeeAddresses.remove(employeeAddress);
         return true;
+    }
+
+    public Set<EmployeeAddress> getAll() {
+        return employeeAddresses;
     }
 }

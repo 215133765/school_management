@@ -1,3 +1,9 @@
+/**
+ * Mandisa Msongelwa
+ * Student number: 217149073
+ * StudentAddressServiceTest
+ */
+
 package za.ac.cput.Services.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -47,10 +53,11 @@ public class StudentAddressServiceTest {
     }
 
     @Test
-    void d_delete() {
+    boolean d_delete() {
         boolean success = studentAddressService.delete(studentAddress.getStudentId());
         assertTrue(success);
         System.out.println("Student deleted: " + success);
+        return true;
     }
 }
 
