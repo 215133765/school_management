@@ -38,7 +38,9 @@ public class CityService implements ICityService {
     }
 
     @Override
-    public void delete(String cit){
+    public String delete(String cit){
        this.cityRepository.delete(cit);
+        return cit;
     }
+
 }

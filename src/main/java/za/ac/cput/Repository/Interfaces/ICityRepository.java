@@ -6,8 +6,12 @@ package za.ac.cput.Repository.Interfaces;
  * Created: 12/6/2022
  * */
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.IRepository;
 
-public interface ICityRepository extends IRepository <City, String> {
+import java.util.Set;
+
+public interface ICityRepository extends IRepository<City, String> {
+
 }
