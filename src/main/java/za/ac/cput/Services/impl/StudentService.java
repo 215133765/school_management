@@ -28,7 +28,7 @@ public class StudentService implements IStudentService {
     public Student update(Student student) {return this.studentRepository.update(student);}
 
     @Override
-    public String delete(String s) {this.studentRepository.delete(s);
+    public boolean delete(String s) {this.studentRepository.delete(s);
         return s;
     }
 

@@ -30,7 +30,7 @@ public class StudentAddressService implements IStudentAddressService {
     public StudentAddress update(StudentAddress studentAddress) {return this.studentAddressRepository.update(studentAddress);}
 
     @Override
-    public String delete(String s) {this.studentAddressRepository.delete(s);
+    public boolean delete(String s) {this.studentAddressRepository.delete(s);
         return s;
     }
 

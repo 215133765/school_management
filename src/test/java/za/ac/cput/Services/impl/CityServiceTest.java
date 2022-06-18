@@ -46,8 +46,8 @@ class CityServiceTest {
 
     @Test
     void delete() {
-        String deleted = cityService.delete(city.getCityId());
-        //assertEquals(deleted);
+        boolean deleted = cityService.delete(city.getCityId());
+        assertTrue(deleted);
         System.out.println("Delted" + deleted);
 
 
