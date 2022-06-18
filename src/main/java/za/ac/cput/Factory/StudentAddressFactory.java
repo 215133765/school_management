@@ -17,8 +17,7 @@ public class StudentAddressFactory {
 
     public static StudentAddress buildStudentAddress(String studentId, Address address) {
 
-        //if (Helper.isEmpty(studentId) || Helper.isEmpty())
-            //return null;
+        if (Helper.isEmpty(studentId)) return null;
         return new StudentAddress.Builder()
                 .studentId(studentId)
                 .address(address)
