@@ -30,9 +30,9 @@ class StudentControllerTest {
                 .postForEntity(BASE_URL + "/create/student", null, String.class);
         String url = BASE_URL + "/create";
         ResponseEntity<Student> postResponse = restTemplate.postForEntity(url, student, Student.class);
-//        assertNotNull(postResponse);
+        assertNotNull(postResponse);
 //        assertNotNull(postResponse.getBody());
-//        assertEquals(postResponse.getStatusCode(), HttpStatus.OK);
+        assertEquals(postResponse.getStatusCode(), HttpStatus.OK);
         student = postResponse.getBody();
         System.out.println("Saved data " + postResponse.getBody());
         assertEquals(student.getStudentId(), postResponse.getBody().getStudentId());
