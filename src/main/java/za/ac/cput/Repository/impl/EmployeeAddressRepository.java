@@ -49,8 +49,9 @@ public class EmployeeAddressRepository implements IEmployeeAddressRepository {
     }
 
     @Override
-    public void delete(String del){
+    public boolean delete(String del){
         EmployeeAddress employeeAddress = read(del);
         this.employeeAddresses.remove(employeeAddress);
+        return true;
     }
 }

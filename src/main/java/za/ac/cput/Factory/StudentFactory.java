@@ -17,8 +17,8 @@ public class StudentFactory {
 
     public static Student buildStudent(String studentId, String email, Name name) {
 
-        if (Helper.isEmpty(studentId) || Helper.isValidEmail(email))
-            return null;
+//        if (Helper.isEmpty(studentId) || Helper.isValidEmail(email))
+//            return null;
         return new Student.Builder()
                 .studentId(studentId)
                 .email(email)

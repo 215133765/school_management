@@ -9,9 +9,9 @@ import java.util.Set;
 @Repository
 public class StudentRepository implements IStudentRepository {
 
-    private Set<Student> students;
-    private static StudentRepository studentRepository;
 
+    private static StudentRepository studentRepository = null;
+    private Set<Student> students;
     private StudentRepository() {this.students = new HashSet<>();}
 
     public static StudentRepository getStudentRepository() {

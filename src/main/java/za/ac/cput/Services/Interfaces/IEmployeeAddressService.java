@@ -6,6 +6,7 @@ package za.ac.cput.Services.Interfaces;
  * Created: 13/6/2022
  * */
 import za.ac.cput.Domain.EmployeeAddress;
+import za.ac.cput.Services.IService;
 
 import java.util.List;
 
