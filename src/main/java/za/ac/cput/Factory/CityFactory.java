@@ -12,15 +12,11 @@ import za.ac.cput.Utility.Helper;
 public class CityFactory {
 
     public static City createCity(String cityId, String cityName, Country country){
-        if (Helper.isEmpty(cityId) || Helper.isEmpty(cityName))
-            return null;
-
-        City cities = new City.Builder()
+        Helper.checkStringParam("cityId", cityId);
+            return new City.Builder()
                 .setCityId(cityId)
                 .setCityName(cityName)
                 .setCountry(country)
                 .build();
-
-        return cities;
     }
 }
