@@ -5,7 +5,13 @@ import za.ac.cput.Domain.EmployeeAddress;
 import za.ac.cput.Repository.Interfaces.IEmployeeAddressRepository;
 import za.ac.cput.Repository.impl.EmployeeAddressRepository;
 import za.ac.cput.Services.Interfaces.IEmployeeAddressService;
+
+
+import java.util.Set;
+
+
 @Service
+
 public class EmployeeAddressService implements IEmployeeAddressService {
 
     private static IEmployeeAddressService employeeAddressService;
@@ -42,5 +48,10 @@ public class EmployeeAddressService implements IEmployeeAddressService {
     public boolean delete(String empAddress){
         this.employeeAddressRepository.delete(empAddress);
         return false;
+    }
+
+    @Override
+    public Set<EmployeeAddress> getAll() {
+            return this.employeeAddressRepository.getAll();
     }
 }

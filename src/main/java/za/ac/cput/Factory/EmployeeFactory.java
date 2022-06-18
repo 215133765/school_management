@@ -13,7 +13,7 @@ import za.ac.cput.Utility.Helper;
 
 public class EmployeeFactory {
     public static Employee createEmployee(String staffId, String email, Name name) {
-        Helper.checkStringParam("staffId", staffId);
+        Helper.checkStngParam("staffId", staffId);
         return new Employee.Builder()
                 .setStaffId(staffId)
                 .setEmail(email)

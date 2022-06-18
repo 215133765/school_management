@@ -66,8 +66,10 @@ public class CityRepository implements ICityRepository {
 
     @Override
     public List<City> findbyCityId(String cityId) {
+
         return this.cities.stream()
                 .filter(c -> c.getCityId().equalsIgnoreCase(cityId))
                 .collect(Collectors.toList());
     }
+
 }
