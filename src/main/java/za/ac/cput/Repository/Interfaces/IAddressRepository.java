@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.Domain.Address;
 import za.ac.cput.Repository.IRepository;
 
-@Repository
+
+
 public interface IAddressRepository extends IRepository<Address, String> {
 
 }
