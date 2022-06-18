@@ -5,10 +5,13 @@ package za.ac.cput.Repository.Interfaces;
  *  City Interface file to be implemented
  * Created: 12/6/2022
  * */
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import za.ac.cput.Domain.City;
 
-@Repository
-public interface ICityRepository extends JpaRepository <City, String> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import za.ac.cput.Domain.City;
+import za.ac.cput.Repository.IRepository;
+
+import java.util.Set;
+
+public interface ICityRepository extends IRepository<City, String> {
+
 }

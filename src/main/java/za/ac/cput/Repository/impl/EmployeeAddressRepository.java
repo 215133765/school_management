@@ -1,23 +1,56 @@
 package za.ac.cput.Repository.impl;
-/**
- * Author: Mziyanda Mwanda 215133765
- * POJO EmployeeAddressRepository.java
- *  EmployeeAddress Repository file to be implemented
- * Created: 12/6/2022
- * */
-import org.springframework.stereotype.Repository;
+
 import za.ac.cput.Domain.EmployeeAddress;
 import za.ac.cput.Repository.Interfaces.IEmployeeAddressRepository;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Repository
-public abstract class EmployeeAddressRepository implements IEmployeeAddressRepository {
+public class EmployeeAddressRepository implements IEmployeeAddressRepository {
 
-    public EmployeeAddress retrieve (String staffId){
+    private Set<EmployeeAddress> employeeAddresses;
+    private  static IEmployeeAddressRepository employeeAddressRepository;
 
-        List<EmployeeAddress> employeeAddresses = findAll();
+    private EmployeeAddressRepository() {
+        this.employeeAddresses = new HashSet<>();
 
-        return employeeAddresses.stream().filter(employeeAddress1 -> employeeAddress1.getStaffId().equalsIgnoreCase(staffId)).findAny().orElse(null);
+    }
+
+    public static IEmployeeAddressRepository getEmployeeAddressRepository(){
+        if (employeeAddressRepository == null){
+            employeeAddressRepository = new EmployeeAddressRepository();
+        }
+        return employeeAddressRepository;
+    }
+
+    @Override
+    public EmployeeAddress create(EmployeeAddress employeeAddress){
+        this.employeeAddresses.add(employeeAddress);
+
+        return employeeAddress;
+    }
+
+    @Override
+    public EmployeeAddress read(String employeeAddress){
+        EmployeeAddress employeeAddress1 = this.employeeAddresses.stream().filter(s -> s.getStaffId().equalsIgnoreCase(employeeAddress)).findAny().orElse(null);
+        return employeeAddress1;
+    }
+
+    @Override
+    public EmployeeAddress update(EmployeeAddress employeeAddress){
+        EmployeeAddress empAddress = read(employeeAddress.getStaffId());
+
+        if (empAddress != null){
+            EmployeeAddress updted = new EmployeeAddress.Builder().copy(empAddress).setStaffId(employeeAddress.getStaffId()).build();
+            delete(empAddress.getStaffId());
+            this.employeeAddresses.add(updted);
+        }
+        return empAddress;
+    }
+
+    @Override
+    public void delete(String del){
+        EmployeeAddress employeeAddress = read(del);
+        this.employeeAddresses.remove(employeeAddress);
     }
 }
