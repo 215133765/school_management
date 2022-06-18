@@ -7,10 +7,13 @@ package za.ac.cput.Factory;
  * */
 import za.ac.cput.Domain.City;
 import za.ac.cput.Domain.Country;
+import za.ac.cput.Utility.Helper;
 
 public class CityFactory {
 
     public static City createCity(String cityId, String cityName, Country country){
+        if (Helper.isEmpty(cityId) || Helper.isEmpty(cityName))
+            return null;
 
         City cities = new City.Builder()
                 .setCityId(cityId)
