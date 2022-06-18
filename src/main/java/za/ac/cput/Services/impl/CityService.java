@@ -7,6 +7,7 @@ import za.ac.cput.Repository.Interfaces.ICityRepository;
 import za.ac.cput.Repository.impl.CityRepository;
 import za.ac.cput.Services.Interfaces.ICityService;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -50,4 +51,7 @@ public class CityService implements ICityService {
         return this.cityRepository.getAll();
     }
 
+    public List<City> findbyCityId(String cityId){
+        return this.cityRepository.findbyCityId(cityId);
+    }
 }
