@@ -5,6 +5,7 @@ import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class CityRepository implements ICityRepository {
@@ -56,6 +57,11 @@ public class CityRepository implements ICityRepository {
     }
     public Set<City> getAll() {
         return cities;
+    }
+
+    @Override
+    public List<City> findbyCityId(String cityId) {
+        return null;
     }
 
 }

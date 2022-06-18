@@ -54,4 +54,9 @@ public class EmployeeAddressRepository implements IEmployeeAddressRepository {
         this.employeeAddresses.remove(employeeAddress);
         return true;
     }
+
+    @Override
+    public Set<EmployeeAddress> getAll() {
+            return employeeAddresses;
+    }
 }

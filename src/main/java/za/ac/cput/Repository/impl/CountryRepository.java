@@ -49,8 +49,8 @@ public class CountryRepository implements ICountryRepository {
 
         if (country1 != null){
             countrySet.remove(country1);
-            countrySet.add(country1);
-            return country1;
+            countrySet.add(country);
+            return country;
         }
         return null;
     }
