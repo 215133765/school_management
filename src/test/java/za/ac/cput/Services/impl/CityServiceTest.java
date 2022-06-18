@@ -29,7 +29,7 @@ class CityServiceTest {
 
     @Test
     void read() {
-        City read = cityService.read(city.getCityName);
+        City read = cityService.read(city.getCityName());
         System.out.println("Read : " + '\n' + read);
     }
 
