@@ -22,21 +22,20 @@ public class CityRepository implements ICityRepository {
         return cityRepository;
     }
 
-    @Override
+
     public City create(City city){
         this.cities.add(city);
 
         return city;
     }
 
-    @Override
+
     public City read (String citi){
         City city = this.cities.stream().filter( e -> e.getCityName().equalsIgnoreCase(citi)).findAny().orElse(null);
 
         return city;
     }
 
-    @Override
     public City update(City city){
         City cit = read(city.getCityId());
 
@@ -49,7 +48,6 @@ public class CityRepository implements ICityRepository {
         return cit;
     }
 
-    @Override
     public void delete(String deleted){
         City city = read(deleted);
         this.cities.remove(city);
