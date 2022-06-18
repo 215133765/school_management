@@ -7,6 +7,7 @@ package za.ac.cput.Services.Interfaces;
  * */
 import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.EmployeeAddress;
+import za.ac.cput.Services.IService;
 
 import java.util.List;
 import java.util.Set;

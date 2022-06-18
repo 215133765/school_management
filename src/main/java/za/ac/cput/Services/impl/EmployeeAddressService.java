@@ -38,7 +38,8 @@ public class EmployeeAddressService implements IEmployeeAddressService {
     }
 
     @Override
-    public void delete(String empAddress){
+    public boolean delete(String empAddress){
         this.employeeAddressRepository.delete(empAddress);
+        return true;
     }
 }

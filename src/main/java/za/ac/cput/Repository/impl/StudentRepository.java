@@ -9,9 +9,9 @@ import java.util.Set;
 @Repository
 public class StudentRepository implements IStudentRepository {
 
-    private Set<Student> students;
-    private static StudentRepository studentRepository;
 
+    private static StudentRepository studentRepository = null;
+    private Set<Student> students;
     private StudentRepository() {this.students = new HashSet<>();}
 
     public static StudentRepository getStudentRepository() {
@@ -26,10 +26,11 @@ public class StudentRepository implements IStudentRepository {
 
             @Override
             public Student read(String s) {
-            Student student = this.students.stream()
-                .filter(e -> e.getEmail().equalsIgnoreCase(s))
-                .findAny().orElse(null);
-                return student;
+            for (Student stud: students) {
+                if (stud.getStudentId().equals(s))
+                    return stud;
+            }
+            return null;
             }
 
             @Override
