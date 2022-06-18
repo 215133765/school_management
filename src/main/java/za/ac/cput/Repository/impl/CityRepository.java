@@ -1,5 +1,6 @@
 package za.ac.cput.Repository.impl;
 
+import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.City;
 import za.ac.cput.Repository.Interfaces.ICityRepository;
 
@@ -52,4 +53,8 @@ public class CityRepository implements ICityRepository {
         City city = read(deleted);
         this.cities.remove(city);
     }
+    public Set<City> getAll() {
+        return cities;
+    }
+
 }

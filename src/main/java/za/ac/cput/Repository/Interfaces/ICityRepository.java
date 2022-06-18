@@ -8,7 +8,7 @@ package za.ac.cput.Repository.Interfaces;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.Domain.City;
-import za.ac.cput.Repository.Interfaces.IRepository;
+import za.ac.cput.Repository.IRepository;
 
 import java.util.Set;
 

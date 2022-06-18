@@ -6,6 +6,8 @@ import za.ac.cput.Repository.Interfaces.ICityRepository;
 import za.ac.cput.Repository.impl.CityRepository;
 import za.ac.cput.Services.Interfaces.ICityService;
 
+import java.util.Set;
+
 @Service
 public class CityService implements ICityService {
 
@@ -38,7 +40,9 @@ public class CityService implements ICityService {
     }
 
     @Override
-    public void delete(String cit){
+    public boolean delete(String cit){
        this.cityRepository.delete(cit);
+        return false;
     }
+
 }
