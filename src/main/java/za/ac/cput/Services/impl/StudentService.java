@@ -29,10 +29,8 @@ public class StudentService implements IStudentService {
 
     @Override
     public boolean delete(String s) {this.studentRepository.delete(s);
-        return s;
-    }
 
-
+    return true;}
 
 }
 
