@@ -33,6 +33,17 @@ public class Student {
 
     public Name getName() {return name;}
 
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
+    }
 
     @Override
     public String toString()

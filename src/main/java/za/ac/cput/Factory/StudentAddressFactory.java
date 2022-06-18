@@ -11,10 +11,14 @@ package za.ac.cput.Factory;
 
 import za.ac.cput.Domain.Address;
 import za.ac.cput.Domain.StudentAddress;
+import za.ac.cput.Utility.Helper;
 
 public class StudentAddressFactory {
 
     public static StudentAddress buildStudentAddress(String studentId, Address address) {
+
+        //if (Helper.isEmpty(studentId) || Helper.isEmpty())
+            //return null;
         return new StudentAddress.Builder()
                 .studentId(studentId)
                 .address(address)
