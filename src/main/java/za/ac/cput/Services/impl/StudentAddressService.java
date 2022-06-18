@@ -32,6 +32,5 @@ public class StudentAddressService implements IStudentAddressService {
     @Override
     public boolean delete(String s) {this.studentAddressRepository.delete(s);
     return true;}
-
 }
 

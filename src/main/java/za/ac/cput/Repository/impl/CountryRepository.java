@@ -2,7 +2,7 @@ package za.ac.cput.Repository.impl;
 
 import org.springframework.stereotype.Repository;
 import za.ac.cput.Domain.Country;
-import za.ac.cput.Repository.ICountryRepository;
+import za.ac.cput.Repository.Interfaces.ICountryRepository;
 
 import java.util.List;
 

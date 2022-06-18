@@ -9,11 +9,13 @@ public class EmployeeAddress {
     private String staffId;
     private Address address;
 
+    //Constructor
     private EmployeeAddress(Builder builder){
         this.staffId = builder.staffId;
         this.address = builder.address;
     }
 
+    //Getters and setters
     public String getStaffId() {
         return staffId;
     }
@@ -30,6 +32,7 @@ public class EmployeeAddress {
         this.address = address;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Employee :" +
@@ -37,6 +40,7 @@ public class EmployeeAddress {
                 address ;
     }
 
+    //Builder Pattern Class
     public static class Builder{
         private  String staffId;
         private Address address;

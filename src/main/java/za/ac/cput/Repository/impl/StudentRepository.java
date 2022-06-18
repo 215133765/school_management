@@ -48,8 +48,10 @@ public class StudentRepository implements IStudentRepository {
     }
 
             @Override
-            public void delete(String s) {
+            public boolean delete(String s) {
             Student student = read(s);
             this.students.remove(student);
+            return true;
+
             }
 }
